@@ -1,3 +1,52 @@
-<p>
-  aluno works!
-</p>
+<h3>Alunos</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Curso</th>
+      <th scope="col">Matricula</th>
+      <th scope="col">Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let aluno of alunos">
+      <td>{{ aluno.id }}</td>
+      <td>{{ aluno.cpf }}</td>
+      <td>{{ aluno.curso }}</td>
+      <td>{{ aluno.matricula }}</td>
+      <td>{{ aluno.nome }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Adicionar aluno</h3>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">Id</label>
+  <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="id_form">
+  <small id="emailHelp" class="form-text text-muted">Escolha um Id que não exista ainda :)</small>
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">CPF</label>
+  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="cpf_form">
+  <small id="emailHelp" class="form-text text-muted">O banco tem restrição de CPF, ou seja, insira um que não exista
+    ainda :)</small>
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Curso</label>
+  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="curso_form">
+  <small id="emailHelp" class="form-text text-muted">Curso é livre para digitar qualquer valor!</small>
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Matrícula</label>
+  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="matricula_form">
+  <small id="emailHelp" class="form-text text-muted">O banco tem restrição de matrículas repetidas!</small>
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Nome</label>
+  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="nome_form">
+  <small id="emailHelp" class="form-text text-muted">Nome não possui restrições!</small>
+</div>
+<button class="btn btn-primary" (click)="criar()">Criar!</button>

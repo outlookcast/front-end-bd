@@ -13,4 +13,15 @@ export class ServicesService {
   getTodosAlunos(){
     return this.http.get(this.URL_API + "/aluno");
   }
+
+  criarAluno(id,matricula,nome,cpf,curso){
+    var aluno = {
+      id: id,
+      matricula: matricula,
+      nome: nome,
+      cpf: cpf,
+      curso: curso
+    }
+    return this.http.post(this.URL_API + "/aluno", aluno);
+  }
 }
