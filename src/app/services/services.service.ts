@@ -6,15 +6,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServicesService {
 
-  private URL_API:string = "http://localhost:50000/api";
+  private URL_API: string = "http://localhost:50000/api";
 
   constructor(private http: HttpClient) { }
 
-  getTodosAlunos(){
+  getTodosAlunos() {
     return this.http.get(this.URL_API + "/aluno");
   }
 
-  criarAluno(id,matricula,nome,cpf,curso){
+  criarAluno(id, matricula, nome, cpf, curso) {
     var aluno = {
       id: id,
       matricula: matricula,
@@ -23,5 +23,24 @@ export class ServicesService {
       curso: curso
     }
     return this.http.post(this.URL_API + "/aluno", aluno);
+  }
+
+  getTodosProfessores() {
+    return this.http.get(this.URL_API + "/professor");
+  }
+
+  getNomeDeTodosOsDepartamentos() {
+    return this.http.get(this.URL_API + "/professor/departamento");
+  }
+
+  criarProfessor(id, nome, cpf, siape, departamento) {
+    var professor = {
+      id: id,
+      nome: nome,
+      cpf: cpf,
+      siape: siape,
+      departamento: departamento
+    }
+    return this.http.post(this.URL_API + "/professor", professor);
   }
 }
