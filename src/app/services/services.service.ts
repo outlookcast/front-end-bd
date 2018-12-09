@@ -43,4 +43,8 @@ export class ServicesService {
     }
     return this.http.post(this.URL_API + "/professor", professor);
   }
+
+  getTodasDisciplinasComTurmas(){
+    return this.http.get(this.URL_API + "/disciplina");
+  }
 }

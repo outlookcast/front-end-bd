@@ -1,3 +1,35 @@
-<p>
-  turmas works!
-</p>
+<h3>Disciplinas</h3>
+
+<div class="card" *ngFor="let disciplina of turmas">
+    <div class="card-body">
+      <h5 class="card-title">Disciplina: {{ disciplina.id }} - {{ disciplina.nome }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Coordenador: {{ disciplina.coordenador }}</h6>
+      <p class="card-text">Ementa: {{ disciplina.ementa }}</p>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Disciplina</th>
+              <th scope="col">Letra</th>
+              <th scope="col">Observacao</th>
+              <th scope="col">Professor</th>
+              <th scope="col">Semestre</th>
+              <th scope="col">Numero de Vagas</th>
+              <th scope="col">Vagas Ocupadas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let turma of disciplina.turmas">
+              <td>{{ turma.id }}</td>
+              <td>{{ turma.disciplina }}</td>
+              <td>{{ turma.letra }}</td>
+              <td>{{ turma.observacao }}</td>
+              <td>{{ turma.professor }}</td>
+              <td>{{ turma.semestre }}</td>
+              <td>{{ turma.numeroDeVagas }}</td>
+              <td>{{ turma.vagasOcupadas }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
